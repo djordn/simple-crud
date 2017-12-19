@@ -1,4 +1,4 @@
-# simple-crud
+# Lumen Simple CRUD
 Just a simple CRUD
 
 Copie o arquivo .env.example para .env ( com o . ( ponto ) mesmo )
