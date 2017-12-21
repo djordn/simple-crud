@@ -1,0 +1,36 @@
+version: "3"
+# networks:
+#   bridge:
+#     driver: bridge
+
+services:
+  php:
+    build: ./php-docker
+    image: simple-crud:0.1
+    privileged: true
+    volumes:
+       - ./src:/opt
+    #   - ./web-server/fpm/conf/etc:/usr/local/etc
+    ports:
+      - 80:80
+    networks:
+        - buskfacil
+
+  db-server:
+     image: mysql
+     volumes:
+       - ./db-data:/var/lib/mysql
+     ports:
+       - "3307:3306"
+     environment:
+       - SERVICE_PORTS=80
+       - MYSQL_DATABASE=homestead
+       - MYSQL_USER=homestead
+       - MYSQL_PASSWORD=homestead
+       - MYSQL_ROOT_PASSWORD=homestead
+
+     networks:
+           - buskfacil
+
+networks:
+  buskfacil:
