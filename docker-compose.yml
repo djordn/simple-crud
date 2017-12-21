@@ -10,7 +10,6 @@ services:
     privileged: true
     volumes:
        - ./src:/opt
-    #   - ./web-server/fpm/conf/etc:/usr/local/etc
     ports:
       - 80:80
     networks:
